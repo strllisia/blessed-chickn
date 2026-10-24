@@ -116,7 +116,7 @@ p {
 	justify-content: space-between;
 	height: 90px;
 	margin: 0;
-	padding: 0 var(--borderpads);
+	padding: 0 50px;
 	background: var(--brown);
 	color: var(--white);
 }
@@ -149,7 +149,7 @@ p {
 }
 
 #site-header .brand span {
-	margin-left: 210px;
+	margin-left: 250px;
 	font-size: var(--titletext);
 	font-weight: 500;
 }
@@ -241,7 +241,7 @@ p {
 	position: absolute;
 	z-index: 2;
 	top: 40px;
-	right: var(--borderpads);
+	right: 50px;
 	display: grid;
 	place-items: center;
 	width: 80px;
