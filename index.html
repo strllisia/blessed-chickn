@@ -12,7 +12,8 @@
 </head>
 
 <body class="homepage is-preload">
-	<div class="snapper">
+
+	<div class="snapper" id="loading page">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -27,26 +28,26 @@
 				<!-- NavBar -->
 				<nav aria-label="Navigation Bar">
 					<ul>
-						<li><a href="#">Home</a></li>
+						<li><a href="#home">Home</a></li>
 						<li class="has-sub">
-							<a href="#">Location</a>
+							<a href="#location">Location</a>
 							<ul>
 								<li><a href="#">1st Branch</a></li>
 								<li><a href="#">2nd Branch</a></li>
 							</ul>
 						</li>
 						<li class="has-sub">
-							<a href="#">Menu</a>
+							<a href="#menu">Menu</a>
 							<ul>
-								<li><a href="#">Recommendations</a></li>
-								<li><a href="#">New Menu</a></li>
-								<li><a href="#">Food Menu</a></li>
-								<li><a href="#">Drink Menu</a></li>
+								<li><a href="#menu">Recommendations</a></li>
+								<li><a href="#menu">New Menu</a></li>
+								<li><a href="#menu">Food Menu</a></li>
+								<li><a href="#menu">Drink Menu</a></li>
 							</ul>
 						</li>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">About Us</a></li>
+						<li><a href="#FAQ">FAQ</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li><a href="#about-us">About Us</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -79,7 +80,7 @@
 	</div>
 
 	<!-- Menu Recommendations -->
-	<div class="snapper">
+	<div class="snapper" id="menu page">
 		<div class="block">
 			<div class="container">
 				<h2 class="title">
@@ -99,7 +100,7 @@
 		</div>
 	</div>
 
-	<div class="snapper">
+	<div class="snapper" id="services page">
 		<!-- Delivery Partners -->
 		<div class="block">
 			<div class="container">
@@ -108,9 +109,23 @@
 				</h1>
 
 				<ul class="delivery">
-					<li><a href="#"><img src="resources/gofood.png" alt="GoFood"></a></li>
-					<li><a href="#"><img src="resources/grabfoodnobg.png" alt="GrabFood"></a></li>
-					<li><a href="#"><img src="resources/shopeefoodnobg.png" alt="ShopeeFood"></a></li>
+					<li>
+						<a class="button" href="https://www.gofood.co.id/">
+							<img src="resources/gofood.png" alt="GoFood">
+						</a>
+					</li>
+
+					<li>
+						<a class="button" href="https://www.grab.com/id/">
+							<img src="resources/grabfoodnobg.png" alt="GrabFood">
+						</a>
+					</li>
+
+					<li>
+						<a class="button" href="https://www.shopee.co.id/">
+							<img src="resources/shopeefoodnobg.png" alt="ShopeeFood">
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -133,7 +148,7 @@
 		</div>
 	</div>
 
-	<div class="snapper">
+	<div class="snapper" id="more about us page">
 		<!-- Historical Timeline -->
 		<div class="block">
 			<div class="container">
@@ -167,40 +182,40 @@
 						<b>2023</b>
 					</li>
 				</ul>
-				<div class="right"><a class="button" href="#">Discover more about us</a></div>
+				<div class="right"><a class="button" href="#about-us">Discover more about us</a></div>
 			</div>
 		</div>
 	</div>
 
-	<div class="snapper">
+	<div class="snapper" id="reviews page and footer">
 
 		<!-- Forms -->
 		<div class="block">
 			<div class="container">
-				<header class="major">
-					<h1 class="title"><b>REVIEW FORMS</b></h1>
-					<p>Help us by giving reviews and critisms on our product! This will help improve our cooking.</p>
-				</header>
-				<div class="row">
-					<form method="post" action="#">
-						<div class="row gtr-50">
 
+				<h1 class="title"><b>LEAVE A REVIEW</b></h1>
+				<p>Share your feedback with us! Your reviews help us improve.</p>
+
+				<div class="row">
+					<form id="review-form">
+						<div class="row gtr-50">
 							<div class="col-6 col-12-mobile">
-								<input name="name" placeholder="Name" type="text" />
+								<input name="name" placeholder="Name" type="text" aria-label="Name" required>
 							</div>
 
 							<div class="col-6 col-12-mobile">
-								<input name="email" placeholder="Email" type="text" />
+								<input name="email" placeholder="Email" type="text" aria-label="Email">
 							</div>
 
 							<div class="col-12">
-								<textarea name="message" placeholder="Message"></textarea>
+								<textarea name="review" placeholder="Message Review" aria-label="Message Review"
+									rows="3" required></textarea>
 							</div>
 
 							<div class="col-12">
 								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-									<li><input type="reset" value="Clear form" /></li>
+									<li><input type="submit" value="Send Message"></li>
+									<li><input type="reset" value="Clear form"></li>
 								</ul>
 							</div>
 
@@ -210,13 +225,13 @@
 			</div>
 		</div>
 
-		<!-- Customer Comments -->
+		<!-- Customer Reviews -->
 		<div class="block">
 			<div class="container">
 				<div class="review-comments">
-					<header class="title">CUSTOMER COMMENTS</header>
+					<header class="title">CUSTOMER REVIEWS</header>
 					<div id="comment-list">
-						<p>No comments yet. Be the first to leave a review!</p>
+						<p>No reviews yet. Be the first to leave a review!</p>
 					</div>
 				</div>
 			</div>
@@ -226,19 +241,19 @@
 		<div id="footer">
 			<div class="container">
 				<div class="foot-cols">
-					<div>
+					<div id="branch-1">
 						<h3>1st branch address</h3>
 						<p>1000 Blessed Lane, Victoria Rd., 10100</p>
 					</div>
-					<div>
+					<div id="branch-2">
 						<h3>2nd branch address</h3>
 						<p>3000 Blessed Lane, Fun Rd., 20026</p>
 					</div>
-					<div>
+					<div id="opening-hours">
 						<h3>Opening hours</h3>
 						<p>10:00 - 22:00</p>
 					</div>
-					<div>
+					<div id="contact">
 						<h3>Contact number (WA)</h3>
 						<p>0812-3456-7890<br>or 0818-6789-4321</p>
 					</div>
@@ -318,43 +333,41 @@
 		const reviewForm = document.querySelector('#review-form');
 		const commentList = document.querySelector('#comment-list');
 
-		reviewForm.addEventListener('submit', function (event) {
-			event.preventDefault();
+		if (reviewForm && commentList) {
+			reviewForm.addEventListener('submit', function (event) {
+				event.preventDefault();
 
-			const name = reviewForm.querySelector('[name="name"]').value.trim();
-			const email = reviewForm.querySelector('[name="email"]').value.trim();
-			const message = reviewForm.querySelector('[name="message"]').value.trim();
+				const name = reviewForm.querySelector('[name="name"]').value.trim();
+				const email = reviewForm.querySelector('[name="email"]').value.trim();
+				const message = reviewForm.querySelector('[name="message"]').value.trim();
 
-			if (!name || !email || !message) {
-				alert('Please fill in all fields!');
-				return;
-			}
+				if (!name || !email || !message) {
+					alert('Please fill in all fields!');
+					return;
+				}
 
-			// Create a new comment
-			const comment = document.createElement('div');
-			comment.classList.add('comment');
+				const comment = document.createElement('div');
+				comment.classList.add('comment');
 
-			const heading = document.createElement('h3');
-			heading.textContent = name;
+				const heading = document.createElement('h3');
+				heading.textContent = name;
 
-			const text = document.createElement('p');
-			text.textContent = message;
+				const text = document.createElement('p');
+				text.textContent = message;
 
-			comment.appendChild(heading);
-			comment.appendChild(text);
+				comment.appendChild(heading);
+				comment.appendChild(text);
 
-			// Remove the empty message
-			const emptyMessage = commentList.querySelector(':scope > p');
-			if (emptyMessage && commentList.children.length === 1) {
-				emptyMessage.remove();
-			}
+				const emptyMessage = commentList.querySelector(':scope > p');
 
-			// Display the newest comment first
-			commentList.prepend(comment);
+				if (emptyMessage) {
+					emptyMessage.remove();
+				}
 
-			// Clear the form
-			reviewForm.reset();
-		});
+				commentList.prepend(comment);
+				reviewForm.reset();
+			});
+		}
 	</script>
 
 </body>
