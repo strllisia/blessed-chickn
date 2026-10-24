@@ -368,8 +368,8 @@ p {
 	justify-content: center;
 	height: 300px;
 	padding: 20px;
-	background: #e9ecef;
-	border: 1px solid #cfd4da;
+	background: #f1e8db;
+	border: 1px solid #d6cab9;
 	border-radius: 10px;
 	transition: transform 0.25s;
 }
@@ -400,7 +400,7 @@ p {
 	gap: 14px;
 	height: 245px;
 	padding: 12px;
-	background: var(--grey);
+	background: #cab496;
 	border-radius: 12px;
 	font-size: var(--normaltext);
 	font-weight: 600;
