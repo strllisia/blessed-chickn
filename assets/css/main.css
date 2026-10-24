@@ -19,7 +19,7 @@
 	--normaltext: 23px;
 	--subtitlestext: 20px;
 
-	--max: 1600px;
+	--max: 2000px;
 }
 
 *,
@@ -285,6 +285,7 @@ p {
 	flex: 0 0 100%;
 	scroll-snap-align: start;
 	height: 100%;
+	overflow: hidden;
 }
 
 .hero-slide img {
