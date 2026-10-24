@@ -149,8 +149,8 @@ p {
 }
 
 #site-header .brand span {
-	margin-left: 200px;
-	font-size: var(--headingstext);
+	margin-left: 210px;
+	font-size: var(--titletext);
 	font-weight: 500;
 }
 
