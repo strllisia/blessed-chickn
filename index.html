@@ -3,7 +3,7 @@
 
 <head>
 	<title>Blessed Chick'N | Famous Fried Chicken</title>
-	<link rel="shortcut icon" type="image/png" href="resources/blessed.png">
+	<link rel="shortcut icon" type="image/png" href="resources/blessed-logo.png">
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
 
 <body class="homepage is-preload">
 
-	<div class="snapper" id="loading page">
+	<div class="snapper" id="home-page">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -21,33 +21,33 @@
 
 				<!-- Logo -->
 				<a class="brand" href="index.html">
-					<img src="resources/blessed.png" alt="">
+					<img src="resources/blessed-logo.png" alt="Blessed ChickN Logo">
 					<span>Blessed Chick'N</span>
 				</a>
 
 				<!-- NavBar -->
 				<nav aria-label="Navigation Bar">
 					<ul>
-						<li><a href="#home">Home</a></li>
+						<li><a href="#">Home</a></li>
 						<li class="has-sub">
-							<a href="#location">Location</a>
+							<a href="#">Location</a>
 							<ul>
 								<li><a href="#">1st Branch</a></li>
 								<li><a href="#">2nd Branch</a></li>
 							</ul>
 						</li>
 						<li class="has-sub">
-							<a href="#menu">Menu</a>
+							<a href="#">Menu</a>
 							<ul>
-								<li><a href="#menu">Recommendations</a></li>
-								<li><a href="#menu">New Menu</a></li>
-								<li><a href="#menu">Food Menu</a></li>
-								<li><a href="#menu">Drink Menu</a></li>
+								<li><a href="#">Recommendations</a></li>
+								<li><a href="#">New Menu</a></li>
+								<li><a href="#">Food Menu</a></li>
+								<li><a href="#">Drink Menu</a></li>
 							</ul>
 						</li>
-						<li><a href="#FAQ">FAQ</a></li>
-						<li><a href="#contact">Contact</a></li>
-						<li><a href="#about-us">About Us</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">About Us</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -59,9 +59,24 @@
 
 			<div class="hero-carousel">
 				<div class="hero-track">
-					<div class="hero-slide"><img src="resources/ayam goreng.jpg" alt="Fried chicken"></div>
-					<div class="hero-slide"><img src="resources/tempe goreng.jpg" alt="Fried tempe"></div>
-					<div class="hero-slide"><img src="resources/tahu goreng.jpg" alt="Fried tofu"></div>
+					<div class="hero-slide">
+						<img src="resources/chicken-1.jpg" alt="One Singular Fried Chicken Image" width="100%"
+							height="100%" style="object-fit: cover; 
+						object-position: 100% 70%; transform: scale(1.6) translateX(5%);">
+					</div>
+
+					<div class="hero-slide">
+						<img src="resources/chicken-2.jpg" alt="Group of Fried Chicken Image" width="100%" height="100%"
+							style="object-fit: cover; 
+						object-position: 100% 70%; transform: scale(1.5) translateX(3%);">
+					</div>
+
+					<div class="hero-slide">
+						<video id="hero-video" loop playsinline width="100%" height="100%" style="object-fit: cover;
+						object-position: 50% 50%;">
+							<source src="#" type="video/mp4">
+						</video>
+					</div>
 				</div>
 				<button class="hero-button prev" aria-label="Previous">&#8249;</button>
 				<button class="hero-button next" aria-label="Next">&#8250;</button>
@@ -72,7 +87,7 @@
 				<p>Blessed Chick'N<br>est. 1963</p>
 			</div>
 
-			<a class="play" href="#" aria-label="Play Video">
+			<a class="play" href="#" aria-label="Click to Interact with Playable Video">
 				&#9654;
 			</a>
 
@@ -80,7 +95,7 @@
 	</div>
 
 	<!-- Menu Recommendations -->
-	<div class="snapper" id="menu page">
+	<div class="snapper" id="menu-page">
 		<div class="block">
 			<div class="container">
 				<h2 class="title">
@@ -100,7 +115,7 @@
 		</div>
 	</div>
 
-	<div class="snapper" id="services page">
+	<div class="snapper" id="services-page">
 		<!-- Delivery Partners -->
 		<div class="block">
 			<div class="container">
@@ -148,7 +163,7 @@
 		</div>
 	</div>
 
-	<div class="snapper" id="more about us page">
+	<div class="snapper" id="about-page">
 		<!-- Historical Timeline -->
 		<div class="block">
 			<div class="container">
@@ -187,7 +202,7 @@
 		</div>
 	</div>
 
-	<div class="snapper" id="reviews page and footer">
+	<div class="snapper" id="reviews-page">
 
 		<!-- Forms -->
 		<div class="block">
@@ -214,8 +229,10 @@
 
 							<div class="col-12">
 								<ul class="actions">
-									<li><input type="submit" value="Send Message"></li>
-									<li><input type="reset" value="Clear form"></li>
+									<li>
+										<input type="submit" value="Send Message">
+										<input type="reset" value="Clear form">
+									</li>
 								</ul>
 							</div>
 
@@ -236,7 +253,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
+	<div class="snapper" id="footer-page">
+		
 		<!-- Footer -->
 		<div id="footer">
 			<div class="container">
@@ -298,6 +318,7 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
+	<!----- JS for Hero's Carousel -->
 	<script>
 		var hero = document.querySelector('.hero-carousel');
 		var track = hero.querySelector('.hero-track');
@@ -329,6 +350,29 @@
 		start();
 	</script>
 
+	<!----- JS for Hero's Video -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const playBtn = document.querySelector("#hero .play");
+			const heroVideo = document.getElementById("hero-video");
+
+			if (playBtn && heroVideo) {
+				playBtn.addEventListener("click", function (e) {
+					e.preventDefault();
+
+					if (heroVideo.paused) {
+						heroVideo.play();
+						playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+					} else {
+						heroVideo.pause();
+						playBtn.innerHTML = '<i class="fas fa-play"></i>';
+					}
+				});
+			}
+		});
+	</script>
+
+	<!----- JS for Forms -->
 	<script>
 		const reviewForm = document.querySelector('#review-form');
 		const commentList = document.querySelector('#comment-list');
