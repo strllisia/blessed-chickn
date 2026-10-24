@@ -80,6 +80,21 @@ p {
 	flex: 1;
 }
 
+.block {
+	padding: 40px;
+	font-size: 20px;
+}
+
+.title {
+	margin-bottom: 18px;
+	font-size: 25px;
+	font-weight: 100px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--brown);
+}
+
 /* ----- HEADER AREA */
 
 #site-header {
@@ -633,23 +648,6 @@ input[type="submit"]:hover,
 input[type="reset"]:hover {
 	background: var(--orange);
 	color: var(--white);
-}
-
-/* ----- BLOCKS & MORE BUTTONS */
-
-.block {
-	padding: 40px;
-	font-size: 20px;
-}
-
-.title {
-	margin-bottom: 18px;
-	font-size: 25px;
-	font-weight: 100px;
-	font-weight: 700;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	color: var(--brown);
 }
 
 /* ----- WRAPPERS */
