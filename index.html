@@ -216,28 +216,25 @@
 				<div class="row">
 					<form id="review-form">
 						<div class="row gtr-50">
-							<div class="col-6 col-12-mobile">
-								<input name="name" placeholder="Name" type="text" aria-label="Name" required>
+							<div>
+								<label for="review-name">Name</label>
+								<input type="text" id="review-name" aria-label="Name" required>
 							</div>
 
-							<div class="col-6 col-12-mobile">
-								<input name="email" placeholder="Email" type="text" aria-label="Email">
+							<div>
+								<label for="review-email">Email</label>
+								<input type="text" id="review-email" aria-label="email">
 							</div>
 
-							<div class="col-12">
-								<textarea name="review" placeholder="Message Review" aria-label="Message Review"
-									rows="3" required></textarea>
+							<div>
+								<label for="review-message">Message</label>
+								<input type="text" id="review-message" aria-label="message" required>
 							</div>
 
-							<div class="col-12">
-								<ul class="actions">
-									<li>
-										<input type="submit" value="Send Message">
-										<input type="reset" value="Clear form">
-									</li>
-								</ul>
+							<div class="form-buttons">
+								<input type="submit" value="Send Message" class="button" aria-label="Submit Button">
+								<input type="reset" value="Clear form" class="button" aria-label="Reset Button">
 							</div>
-
 						</div>
 					</form>
 				</div>
@@ -247,7 +244,7 @@
 		<!-- Customer Reviews -->
 		<div class="block">
 			<div class="container">
-				<div class="review-comments">
+				<div class="review-comments" id="comment-list">
 					<header class="title">CUSTOMER REVIEWS</header>
 					<div id="comment-list">
 						<p>No reviews yet. Be the first to leave a review!</p>
@@ -258,7 +255,7 @@
 	</div>
 
 	<div class="snapper" id="footer-page">
-		
+
 		<!-- Footer -->
 		<div id="footer">
 			<div class="container">
@@ -339,78 +336,76 @@
 			}
 		}
 
-		function stop() {clearInterval(timer);}
+		function stop() {
+			clearInterval(timer);
+		}
 
 		hero.querySelectorAll('.hero-button').forEach(function (b) {
-			b.addEventListener('click', function () {go(b.classList.contains('next') ? 1 : -1);});
+			b.addEventListener('click', function () {
+				go(b.classList.contains('next') ? 1 : -1);
+			});
 		});
 
 		hero.addEventListener('mouseenter', stop);
 		hero.addEventListener('mouseleave', start);
 		hero.addEventListener('focusin', stop);
 		hero.addEventListener('focusout', start);
+
 		start();
 	</script>
 
 	<!----- JS for Hero's Video -->
 	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			const playBtn = document.querySelector("#hero .play");
-			const heroVideo = document.getElementById("hero-video");
+		var playBtn = document.querySelector("#hero .play");
+		var heroVideo = document.getElementById("hero-video");
 
-			if (playBtn && heroVideo) {
-				playBtn.addEventListener("click", function (e) {
-					e.preventDefault();
+		if (playBtn && heroVideo) {
+			playBtn.addEventListener("click", function (e) {
+				e.preventDefault();
 
-					if (heroVideo.paused) {
-						heroVideo.play();
-						playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-					} else {
-						heroVideo.pause();
-						playBtn.innerHTML = '<i class="fas fa-play"></i>';
-					}
-				});
-			}
-		});
+				if (heroVideo.paused) {
+					heroVideo.play();
+					playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+				} else {
+					heroVideo.pause();
+					playBtn.innerHTML = '<i class="fas fa-play"></i>';
+				}
+			});
+		}
 	</script>
 
 	<!----- JS for Forms -->
 	<script>
-		const reviewForm = document.querySelector('#review-form');
-		const commentList = document.querySelector('#comment-list');
+		var reviewForm = document.getElementById("review-form");
+		var commentList = document.getElementById("comment-list");
+		var noReviewsText = document.getElementById("no-reviews-text");
 
-		if (reviewForm && commentList) {
-			reviewForm.addEventListener('submit', function (event) {
-				event.preventDefault();
+		function escapeHTML(str) {
+			var map = {'&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'};
+			return str.replace(/[&<>'"]/g, function (tag) {
+				return map[tag] || tag;
+			});
+		}
 
-				const name = reviewForm.querySelector('[name="name"]').value.trim();
-				const email = reviewForm.querySelector('[name="email"]').value.trim();
-				const message = reviewForm.querySelector('[name="message"]').value.trim();
+		if (reviewForm) {
+			reviewForm.addEventListener("submit", function (e) {
+				e.preventDefault();
 
-				if (!name || !email || !message) {
-					alert('Please fill in all fields!');
-					return;
+				var nameInput = document.getElementById("review-name").value.trim();
+				var messageInput = document.getElementById("review-message").value.trim();
+
+				if (!nameInput || !messageInput) return;
+
+				if (noReviewsText) {
+					noReviewsText.style.display = "none";
 				}
 
-				const comment = document.createElement('div');
-				comment.classList.add('comment');
+				var newComment = document.createElement("div");
+				newComment.className = "comment";
+				newComment.innerHTML = '<h3>' + escapeHTML(nameInput) + '</h3><p>' + escapeHTML(messageInput) + '</p>';
 
-				const heading = document.createElement('h3');
-				heading.textContent = name;
+				commentList.appendChild(newComment);
 
-				const text = document.createElement('p');
-				text.textContent = message;
-
-				comment.appendChild(heading);
-				comment.appendChild(text);
-
-				const emptyMessage = commentList.querySelector(':scope > p');
-
-				if (emptyMessage) {
-					emptyMessage.remove();
-				}
-
-				commentList.prepend(comment);
 				reviewForm.reset();
 			});
 		}
