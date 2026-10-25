@@ -169,7 +169,7 @@ p {
 }
 
 #site-header nav>ul {
-	content: "\25BE"; 
+	content: "\25BE";
 	display: flex;
 	gap: 50px;
 	font-size: var(--headingstext);
@@ -199,16 +199,16 @@ p {
 	font-size: var(--normaltext);
 }
 
-#site-header .has-sub > a::after{
-    content: "\25BE";
-    display: inline-block;
-    margin-left: 8px;
-    font-size: 0.8em;
-    transition: transform 0.25s;
+#site-header .has-sub>a::after {
+	content: "\25BE";
+	display: inline-block;
+	margin-left: 8px;
+	font-size: 0.8em;
+	transition: transform 0.25s;
 }
 
-#site-header .has-sub:hover > a::after{
-    transform: rotate(180deg);
+#site-header .has-sub:hover>a::after {
+	transform: rotate(180deg);
 }
 
 /* ----- HERO AREA */
@@ -254,9 +254,9 @@ p {
 }
 
 .hero-video {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 #hero .play {
