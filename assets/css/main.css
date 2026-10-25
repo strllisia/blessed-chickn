@@ -10,7 +10,10 @@
 	--grey: #7b8794;
 	--brown: #81440a;
 	--orange: #de7f20;
-	--white: #fffaf3;
+	--whiteish: #fffaf3;
+
+	--lightbrown: #f1e8db;
+	--darkbrown: #cab496;
 
 	--borderpads: 100px;
 
@@ -33,7 +36,7 @@
 html {
 	scroll-snap-type: y proximity;
 	scroll-behavior: smooth;
-	background: var(--white);
+	background: var(--whiteish);
 	font-family: Arial, Helvetica, sans-serif;
 	height: 100%;
 }
@@ -116,14 +119,14 @@ p {
 	justify-content: space-between;
 	height: 90px;
 	margin: 0;
-	padding: 0 50px;
+	padding: 0 60px;
 	background: var(--brown);
-	color: var(--white);
+	color: var(--whiteish);
 }
 
 #site-header a {
 	border-bottom: 0;
-	color: var(--white);
+	color: var(--whiteish);
 }
 
 #site-header a:hover {
@@ -166,6 +169,7 @@ p {
 }
 
 #site-header nav>ul {
+	content: "\25BE"; 
 	display: flex;
 	gap: 50px;
 	font-size: var(--headingstext);
@@ -195,6 +199,18 @@ p {
 	font-size: var(--normaltext);
 }
 
+#site-header .has-sub > a::after{
+    content: "\25BE";
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 0.8em;
+    transition: transform 0.25s;
+}
+
+#site-header .has-sub:hover > a::after{
+    transform: rotate(180deg);
+}
+
 /* ----- HERO AREA */
 
 #hero {
@@ -206,7 +222,7 @@ p {
 	min-height: 700px;
 	overflow: hidden;
 	background: var(--darkgrey);
-	color: var(--white);
+	color: var(--whiteish);
 }
 
 .hero-text {
@@ -248,7 +264,7 @@ p {
 	height: 80px;
 	font-size: 28px;
 	background: rgba(19, 18, 17, 0.75);
-	color: var(--white);
+	color: var(--whiteish);
 	border-radius: 50%;
 	transition: background 0.25s;
 	cursor: pointer;
@@ -333,25 +349,17 @@ p {
 	scrollbar-color: var(--brown) #ddd;
 }
 
-.scroller::-webkit-scrollbar {
-	height: 10px;
-}
-
-.scroller::-webkit-scrollbar-track {
-	background: #ddd;
-	border-radius: 5px;
-}
-
-.scroller::-webkit-scrollbar-thumb {
-	background: var(--brown);
-	border-radius: 5px;
-}
-
 .scroller img {
 	flex: 0 0 520px;
 	height: 350px;
 	object-fit: cover;
 	border-radius: 10px;
+}
+
+.scroller img:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+	filter: brightness(1.08);
 }
 
 /* ----- DELIVERY */
@@ -368,14 +376,16 @@ p {
 	justify-content: center;
 	height: 300px;
 	padding: 20px;
-	background: #f1e8db;
-	border: 1px solid #d6cab9;
+	background: var(--lightbrown);
+	border: 1px solid var(--darkbrown);
 	border-radius: 10px;
 	transition: transform 0.25s;
 }
 
 .delivery a:hover {
 	transform: translateY(-5px);
+	cursor: pointer;
+	background: var(--darkbrown);
 }
 
 .delivery img {
@@ -400,7 +410,7 @@ p {
 	gap: 14px;
 	height: 245px;
 	padding: 12px;
-	background: #cab496;
+	background: var(--darkbrown);
 	border-radius: 12px;
 	font-size: var(--normaltext);
 	font-weight: 600;
@@ -435,6 +445,7 @@ p {
 
 .timeline li span {
 	font-size: var(--normaltext);
+	color: #a18866;
 }
 
 .timeline li span,
@@ -453,18 +464,18 @@ p {
 
 .timeline li:nth-child(odd) {
 	background:
-		radial-gradient(circle at 50% 105px, var(--white) 6px, var(--brown) 6px 9px, transparent 9px),
+		radial-gradient(circle at 50% 105px, var(--whiteish) 6px, var(--brown) 6px 9px, transparent 9px),
 		linear-gradient(var(--brown), var(--brown)) center 105px / 3px 64px no-repeat;
 }
 
 .timeline li:nth-child(even) {
 	background:
-		radial-gradient(circle at 50% 235px, var(--white) 6px, var(--brown) 6px 9px, transparent 9px),
+		radial-gradient(circle at 50% 235px, var(--whiteish) 6px, var(--brown) 6px 9px, transparent 9px),
 		linear-gradient(var(--brown), var(--brown)) center 170px / 3px 64px no-repeat;
 }
 
 .timeline li:nth-child(odd) span {
-	bottom: calc(50% + 70px);
+	bottom: calc(50% + 80px);
 }
 
 .timeline li:nth-child(odd) b {
@@ -472,7 +483,7 @@ p {
 }
 
 .timeline li:nth-child(even) span {
-	top: calc(50% + 70px);
+	top: calc(50% + 80px);
 }
 
 .timeline li:nth-child(even) b {
@@ -531,7 +542,7 @@ form textarea {
 .comment {
 	padding: 16px;
 	margin-bottom: 14px;
-	background: var(--white);
+	background: var(--whiteish);
 	border-left: 6px solid var(--orange);
 	border-radius: 8px;
 }
@@ -551,11 +562,12 @@ form textarea {
 /* ----- FOOTER */
 
 #footer {
-	margin-top: auto;
+	margin-top: 0;
 	padding: 40px 0 28px;
 	background: var(--darkgrey);
 	font-size: var(--normaltext);
-	color: var(--white);
+	color: var(--whiteish);
+	scroll-snap-align: end;
 }
 
 .foot-cols {
@@ -655,12 +667,12 @@ header.major {
 input[type="submit"],
 input[type="reset"] {
 	display: inline-block;
-	padding: 6px 20px;
+	padding: 20px 56px;
 	border: 2px solid var(--orange);
 	border-radius: 5px;
 	background: rgba(222, 127, 32, 0.12);
 	font: inherit;
-	font-size: 18px;
+	font-size: var(--normaltext);
 	font-weight: 700;
 	letter-spacing: 1px;
 	text-transform: uppercase;
@@ -668,13 +680,18 @@ input[type="reset"] {
 	cursor: pointer;
 	transition: background-color 0.25s, color 0.25s;
 	margin-top: 15px;
+	text-align: right;
 }
 
 .button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
 	background: var(--orange);
-	color: var(--white);
+	color: var(--whiteish);
+}
+
+.right {
+	text-align: right;
 }
 
 /* ----- WRAPPERS */
