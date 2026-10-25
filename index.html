@@ -72,16 +72,10 @@
 					</div>
 
 					<div class="hero-slide">
-						<iframe
-        id="hero-video"
-        src="https://www.youtube.com/watch?v=tTE2USdSPnk"
-        title="Royalty Free Video of Chicken"
-        width="100%"
-        height="100%"
-        style="border: 0;"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
+						<video id="hero-video" loop playsinline width="100%" height="100%" style="object-fit: cover;
+						object-position: 50% 50%;">
+							<source src="resources/chicken-video.mp4" type="video/mp4">
+						</video>
 					</div>
 				</div>
 				<button class="hero-button prev" aria-label="Previous">&#8249;</button>
@@ -365,19 +359,32 @@
 	<!----- JS for Hero's Video -->
 	<script>
 		var playBtn = document.querySelector("#hero .play");
+		var hero = document.querySelector(".hero-carousel");
+		var track = hero.querySelector(".hero-track");
 		var heroVideo = document.getElementById("hero-video");
 
-		if (playBtn && heroVideo) {
+		if (playBtn && heroVideo && hero && track) {
 			playBtn.addEventListener("click", function (e) {
 				e.preventDefault();
 
-				if (heroVideo.paused) {
-					heroVideo.play();
-					playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-				} else {
+				if (!heroVideo.paused && !heroVideo.ended) {
 					heroVideo.pause();
-					playBtn.innerHTML = '<i class="fas fa-play"></i>';
+					heroVideo.currentTime = 0;
+					return;
 				}
+
+				var videoSlide = heroVideo.closest(".hero-slide");
+				var slides = Array.from(track.children);
+				var videoIndex = slides.indexOf(videoSlide);
+
+				track.scrollTo({
+					left: videoIndex * track.clientWidth,
+					behavior: "smooth"
+				});
+
+				heroVideo.play().catch(function (error) {
+					console.log("Video playback failed:", error);
+				});
 			});
 		}
 	</script>
